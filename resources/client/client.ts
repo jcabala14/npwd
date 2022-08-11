@@ -5,6 +5,7 @@ import './cl_main';
 import './cl_twitter';
 import './cl_contacts';
 import './cl_marketplace';
+import './cl_jobs';
 import './cl_notes';
 import './cl_photo';
 import './cl_messages';

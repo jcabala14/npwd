@@ -184,6 +184,11 @@
         "UPDATE_SUCCESS": "Successfully updated note."
       }
     },
+    "JOBS": {
+      "FEEDBACK": {
+        "NO_JOBS": "No hay negocios actualmente disponibles."
+      }
+    },
     "MARKETPLACE": {
       "FEEDBACK": {
         "REQUIRED_FIELDS": "All required fields must be filled!",

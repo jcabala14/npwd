@@ -1,5 +1,5 @@
 import DbInterface from '../db/db_wrapper';
-import { JobItem } from '../../../typings/jobs';
+import { JobItem } from '../../../typings';
 
 export class _JobsDB {
   async fetchJobs(): Promise<JobItem[]> {

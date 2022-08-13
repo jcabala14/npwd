@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-// TODO: add search bar later
 const JobList = () => {
   const classes = useStyles();
   const jobs = useJobsValue();
@@ -20,13 +19,21 @@ const JobList = () => {
   if (jobs && jobs.length)
     return (
       <List disablePadding>
-        {jobs.map((job) => (
-          <ListItem key={job.id} divider>
-            <ListItemText>
-              {job.job} : {job.open ? 'Sí' : 'No'}
-            </ListItemText>
-          </ListItem>
-        ))}
+        {jobs
+          .slice()
+          .sort((a, b) => (a.job > b.job ? 1 : b.job > a.job ? -1 : 0))
+          .map((job) => (
+            <ListItem key={job.id} divider>
+              <ListItemText>
+                {job.job}:{' '}
+                {job.open ? (
+                  <span style={{ color: 'yellow' }}>Abierto</span>
+                ) : (
+                  <span style={{ color: 'red' }}>Cerrado</span>
+                )}
+              </ListItemText>
+            </ListItem>
+          ))}
       </List>
     );
 

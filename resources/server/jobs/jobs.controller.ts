@@ -1,7 +1,7 @@
 import JobsService from './jobs.service';
 import { jobsLogger } from './jobs.utils';
 import { onNetPromise } from '../lib/PromiseNetEvents/onNetPromise';
-import { JobItem, JobsEvents } from '../../../typings/jobs';
+import { JobItem, JobsEvents } from '../../../typings';
 
 onNetPromise<void, JobItem[]>(JobsEvents.FETCH_ALL_JOBS, (reqObj, resp) => {
   JobsService.handleFetchJobs(reqObj, resp).catch((e) => {

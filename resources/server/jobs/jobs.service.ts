@@ -1,7 +1,7 @@
 import { jobsLogger } from './jobs.utils';
 import { PromiseEventResp, PromiseRequest } from '../lib/PromiseNetEvents/promise.types';
 import JobsDB, { _JobsDB } from './jobs.db';
-import { JobItem } from '../../../typings/jobs';
+import { JobItem } from '../../../typings';
 
 class _JobsService {
   private readonly jobsDB: _JobsDB;

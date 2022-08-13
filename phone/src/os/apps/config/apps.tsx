@@ -8,7 +8,7 @@ import { MessagesApp } from '../../../apps/messages/components/MessagesApp';
 import { ExampleAppWrapper } from '../../../apps/example/components/ExampleAppWrapper';
 import { MarketplaceApp } from '../../../apps/marketplace/components/MarketplaceApp';
 import { NotesApp } from '../../../apps/notes/NotesApp';
-import { JobsApp } from '../../../apps/jobs/JobsApp';
+import { JobsApp } from '@apps/jobs/JobsApp';
 import CameraApp from '../../../apps/camera/components/CameraApp';
 import { AppRoute } from '../components/AppRoute';
 
@@ -25,7 +25,7 @@ import {
   MARKETPLACE_APP_ICON_COLOR,
 } from '../../../apps/marketplace/marketplace.theme';
 import { NOTES_APP_ICON_COLOR, NOTES_APP_PRIMARY_COLOR } from '../../../apps/notes/notes.theme';
-import { JOBS_APP_ICON_COLOR, JOBS_APP_PRIMARY_COLOR } from '../../../apps/jobs/jobs.theme';
+import { JOBS_APP_ICON_COLOR, JOBS_APP_PRIMARY_COLOR } from '@apps/jobs/jobs.theme';
 import { DIALER_APP_PRIMARY_COLOR, DIALER_APP_TEXT_COLOR } from '../../../apps/dialer/dialer.theme';
 import {
   TWITTER_APP_PRIMARY_COLOR,
@@ -168,6 +168,14 @@ export const APPS: IAppConfig[] = [
     path: '/camera',
     Route: () => <AppRoute id="CAMERA" path="/camera" component={CameraApp} emitOnOpen={false} />,
   },
+  {
+    id: 'JOBS',
+    nameLocale: 'APPS_JOBS',
+    backgroundColor: JOBS_APP_PRIMARY_COLOR,
+    color: JOBS_APP_ICON_COLOR,
+    path: '/jobs',
+    Route: () => <AppRoute id="JOBS" path="/jobs" component={JobsApp} emitOnOpen={false} />,
+  },
 ];
 
 // Example app only in dev
@@ -181,13 +189,5 @@ if (process.env.NODE_ENV === 'development') {
     Route: () => (
       <AppRoute id="EXAMPLE" path="/example" component={ExampleAppWrapper} emitOnOpen={false} />
     ),
-  });
-  APPS.push({
-    id: 'JOBS',
-    nameLocale: 'APPS_JOBS',
-    backgroundColor: JOBS_APP_PRIMARY_COLOR,
-    color: JOBS_APP_ICON_COLOR,
-    path: '/jobs',
-    Route: () => <AppRoute id="JOBS" path="/jobs" component={JobsApp} emitOnOpen={false} />,
   });
 }

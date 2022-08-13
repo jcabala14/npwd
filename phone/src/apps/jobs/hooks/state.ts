@@ -3,19 +3,21 @@ import fetchNui from '@utils/fetchNui';
 import { ServerPromiseResp } from '@typings/common';
 import { JobItem, JobsEvents } from '@typings/jobs';
 import LogDebugEvent from '../../../os/debug/LogDebugEvents';
-import { isEnvBrowser } from '../../../utils/misc';
+import { isEnvBrowser } from '@utils/misc';
 import { BrowserJobsData } from '../utils/constants';
 
-const jobItems = atom({
+export const jobItems = atom({
   key: 'jobItem',
-  default: selector<JobItem[]>({
+  default: selector({
     key: 'defaultJobItems',
     get: async () => {
       try {
         const resp = await fetchNui<ServerPromiseResp<JobItem[]>>(JobsEvents.FETCH_ALL_JOBS);
-        LogDebugEvent({ action: 'FetchNotes', data: resp.data });
+        LogDebugEvent({ action: 'FetchJobs', data: resp.data });
         return resp.data;
       } catch (e) {
+        console.error('HOLA-ESTOY ENTRANDO POR EL CATCH');
+        LogDebugEvent({ action: 'FetchJobs', data: e });
         if (isEnvBrowser()) {
           return BrowserJobsData;
         }

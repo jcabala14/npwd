@@ -4,6 +4,7 @@ export * from './call';
 export * from './common';
 export * from './config';
 export * from './contact';
+export * from './jobs';
 export * from './marketplace';
 export * from './match';
 export * from './messages';

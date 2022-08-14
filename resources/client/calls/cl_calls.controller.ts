@@ -100,3 +100,10 @@ RegisterNuiProxy(CallEvents.FETCH_CALLS);
 onNet(CallEvents.SEND_ALERT, (alert: IAlertProps) => {
   callService.handleSendAlert(alert);
 });
+
+RegisterNuiCB(CallEvents.TOGGLE_MUTE_CALL, (data: { call: ActiveCall; state: boolean }, cb) => {
+  const { state, call } = data;
+  callService.handleMute(state, call);
+
+  cb({});
+});

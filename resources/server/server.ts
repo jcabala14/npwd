@@ -17,6 +17,7 @@ import './messages/messages.controller';
 import './marketplace/marketplace.controller';
 import './twitter/twitter.controller';
 import './match/match.controller';
+import './jobs/jobs.controller';
 
 // setup exports
 import './bridge/sv_exports';

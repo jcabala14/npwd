@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
-import { useJobsValue } from '../hooks/state';
 import { Theme } from '@mui/material/styles';
 import makeStyles from '@mui/styles/makeStyles';
 import { useTranslation } from 'react-i18next';
+import fetchNui from '@utils/fetchNui';
+import { ServerPromiseResp } from '@typings/common';
+import { JobItem, JobsEvents } from '@typings/jobs';
+import LogDebugEvent from '@os/debug/LogDebugEvents';
 
 const useStyles = makeStyles((theme: Theme) => ({
   noNotes: {
@@ -11,9 +14,18 @@ const useStyles = makeStyles((theme: Theme) => ({
   },
 }));
 
-const JobList = () => {
+const JobList = ({ onreload }) => {
   const classes = useStyles();
-  const jobs = useJobsValue();
+
+  const [jobs, setJobs] = useState([]);
+
+  useEffect(() => {
+    fetchNui<ServerPromiseResp<JobItem[]>>(JobsEvents.FETCH_ALL_JOBS).then((resp) => {
+      LogDebugEvent({ action: 'FetchJobs', data: resp.data });
+      setJobs(resp.data);
+    });
+  }, [onreload]);
+
   const [t] = useTranslation();
 
   if (jobs && jobs.length)

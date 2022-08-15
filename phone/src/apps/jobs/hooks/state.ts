@@ -1,4 +1,4 @@
-import { atom, selector, useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { atom, selector, useRecoilValue, useSetRecoilState } from 'recoil';
 import fetchNui from '@utils/fetchNui';
 import { ServerPromiseResp } from '@typings/common';
 import { JobItem, JobsEvents } from '@typings/jobs';
@@ -16,7 +16,6 @@ export const jobItems = atom({
         LogDebugEvent({ action: 'FetchJobs', data: resp.data });
         return resp.data;
       } catch (e) {
-        console.error('HOLA-ESTOY ENTRANDO POR EL CATCH');
         LogDebugEvent({ action: 'FetchJobs', data: e });
         if (isEnvBrowser()) {
           return BrowserJobsData;

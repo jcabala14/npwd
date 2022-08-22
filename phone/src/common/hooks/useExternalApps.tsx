@@ -1,34 +1,9 @@
 import { IApp } from '@os/apps/config/apps';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Route } from 'react-router-dom';
-import { useSettings } from '@apps/settings/hooks/useSettings';
-import { useCustomEvent } from '@os/events/useCustomEvents';
-import { QuestionMark } from '@mui/icons-material';
-
-import externalApps from '../../../../config.apps';
-import { createTheme } from '@mui/material';
-import { deepMergeObjects } from '@shared/deepMergeObjects';
-import { useConfig, usePhone } from '@os/phone/hooks';
-import { usePhoneConfig } from 'config/hooks/usePhoneConfig';
-
-const InvalidAppConfig = (id: string): IApp => ({
-  id,
-  nameLocale: `Invalid external app with id "${id}"`,
-  icon: <QuestionMark />,
-  Route: () => null,
-  backgroundColor: '#222',
-  color: '#fff',
-  isDisabled: false,
-  notification: {
-    badge: 0,
-    icon: <QuestionMark />,
-    key: '',
-  },
-  NotificationIcon: null,
-  notificationIcon: null,
-  path: '',
-  disable: false,
-});
+import { createExternalAppProvider } from '@os/apps/utils/createExternalAppProvider';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { phoneState } from '@os/phone/hooks/state';
 
 const useExternalAppsAction = () => {
   const loadScript = async (url, scope, module) => {
@@ -61,43 +36,43 @@ const useExternalAppsAction = () => {
       const scope = appName;
       const module = './config';
 
-      console.log('url', url);
-      console.log('scope', scope);
-      console.log('module', module);
-
       await loadScript(url, scope, module);
 
       await __webpack_init_sharing__('default');
       const container = window[scope];
-
-      console.log('container', container);
 
       await container.init(__webpack_share_scopes__.default);
       const factory = await window[scope].get(module);
       const Module = factory();
 
       const appConfig = Module.default();
-      console.log('oompa', appConfig);
 
       const config = appConfig;
 
       config.Component = (props: object) => React.createElement(config.app, props);
 
+      const Provider = createExternalAppProvider(config);
+
       config.Route = (props: any) => {
-        const appTheme = createTheme(deepMergeObjects(props.theme, config.theme));
-        const newProps = { ...props, theme: appTheme };
         return (
           <Route path={config.path}>
-            <config.Component {...newProps} />
+            <Provider>
+              <config.Component {...props} />
+            </Provider>
           </Route>
         );
       };
 
       config.icon = React.createElement(config.icon);
 
+      console.debug(`Successfully loaded external app "${appName}"`);
       return config;
     } catch (error: unknown) {
-      console.error('Failed to load external app.', error);
+      console.error(
+        `Failed to load external app "${appName}". Make sure it is started before NPWD.`,
+      );
+      console.error(error);
+
       return null;
     }
   };
@@ -125,21 +100,16 @@ interface ReloadEvent {
 }
 
 export const useExternalApps = () => {
-  const [apps, setApps] = useState<IApp[]>([]);
+  const [apps, setApps] = useRecoilState(phoneState.extApps);
   const { getConfigs } = useExternalAppsAction();
-  const [settings] = useSettings();
-  const dispatch = useCustomEvent('initCustomApp', {});
-  const { ResourceConfig } = usePhone();
+  const config = useRecoilValue(phoneState.resourceConfig);
 
   const handleReloadApp = (message: MessageEvent<ReloadEvent>) => {
     const { data } = message;
     if (data.type === 'RELOAD') {
-      getConfigs(ResourceConfig.apps).then(setApps);
+      getConfigs(config.apps).then(setApps);
     }
   };
-
-  // We need to dispatch the current theme to each app. If we need anything else, we can add it here.
-  dispatch({ theme: settings.theme.value });
 
   useEffect(() => {
     window.addEventListener('message', handleReloadApp);
@@ -149,8 +119,8 @@ export const useExternalApps = () => {
   }, []);
 
   useEffect(() => {
-    getConfigs(ResourceConfig?.apps).then(setApps);
-  }, [ResourceConfig]);
+    getConfigs(config?.apps).then(setApps);
+  }, [config]);
 
   return apps.filter((app) => app);
 };

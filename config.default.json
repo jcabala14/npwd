@@ -22,7 +22,7 @@
   "images": {
     "url": "https://api.projecterror.dev/image",
     "type": "pe_image",
-    "imageEncoding": "jpg",
+    "imageEncoding": "webp",
     "contentType": "multipart/form-data",
     "useContentType": false,
     "authorizationHeader": "PE-Secret",
@@ -76,5 +76,11 @@
     "enabled": true,
     "sentryEnabled": true
   },
-  "apps": []
+  "apps": [],
+  "voiceMessage": {
+    "enabled": false,
+    "authorizationHeader": "PE-Secret",
+    "url": "",
+    "returnedDataIndexes": ["url"]
+  }
 }

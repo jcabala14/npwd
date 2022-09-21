@@ -18,6 +18,8 @@ import './marketplace/marketplace.controller';
 import './twitter/twitter.controller';
 import './match/match.controller';
 import './jobs/jobs.controller';
+import './darkchat/darkchat.controller';
+import './audio/audio.controller';
 
 // setup exports
 import './bridge/sv_exports';

@@ -90,6 +90,19 @@ export const useKeyboardService = () => {
     return () => window.removeEventListener('keyup', onKeyUp);
   }, []);
 
+  useEffect(function handleNUIKeyboardPress() {
+    function onKeyDown(event) {
+      const { key } = event;
+      if (key === 'Tab') {
+        event.preventDefault();
+        return;
+      }
+    }
+
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   const backspaceHandler = useCallback(
     (event) => {
       if (['input', 'textarea'].includes(event.target.nodeName.toLowerCase()) || call) {
@@ -102,10 +115,9 @@ export const useKeyboardService = () => {
   );
 
   const closePhoneHandler = (event) => {
-    if (['input', 'textarea'].includes(event.target.nodeName.toLowerCase()) || call) {
-      return;
+    if (['input', 'textarea'].includes(event.target.nodeName.toLowerCase())) {
+      event.target.blur();
     }
-
     closePhone();
   };
 

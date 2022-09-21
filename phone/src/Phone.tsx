@@ -33,6 +33,7 @@ import { useInvalidSettingsHandler } from './apps/settings/hooks/useInvalidSetti
 import { useKeyboardService } from '@os/keyboard/hooks/useKeyboardService';
 import { useExternalApps } from '@common/hooks/useExternalApps';
 import { useTheme } from '@mui/material';
+import { useDarkchatService } from './apps/darkchat/hooks/useDarkchatService';
 
 function Phone() {
   const { i18n } = useTranslation();
@@ -59,6 +60,7 @@ function Phone() {
   useNoteListener();
   useCallService();
   useDialService();
+  useDarkchatService();
   useInvalidSettingsHandler();
 
   const externalApps = useExternalApps();
@@ -112,4 +114,5 @@ InjectDebugData<any>([
     data: dayjs().format('hh:mm'),
   },
 ]);
+
 export default Phone;

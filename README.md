@@ -7,7 +7,6 @@
 
 [![Discord](https://img.shields.io/discord/791854454760013827?label=Our%20Discord)](https://discord.com/invite/HYwBjTbAY5)
 
-
 [**Watch the NPWD Trailer**](https://www.youtube.com/watch?v=Yh8gT8wuywU)
 
 ![2-1](https://user-images.githubusercontent.com/55056068/147857192-cd8502e6-fb38-4975-b182-4aaaeadff877.png)
@@ -16,11 +15,11 @@
 
 # NPWD Release (Current version 1.x.x)
 
-**New-Phone-Who-Dis** (*NPWD*) is a standalone and open source phone resource created for use in [*FiveM*](https://fivem.net/). It was built from 
+**New-Phone-Who-Dis** (_NPWD_) is a standalone and open source phone resource created for use in [_FiveM_](https://fivem.net/). It was built from
 the ground up by some of the previous contributors and maintainers of the Reignited GCPhone project, who found
 the Vue 2 codebase littered with technical debt and legacy code that hindered continued development.
 
-*NPWD* is an attempt at solving these problems and making a codebase that can be adapted and extended on
+_NPWD_ is an attempt at solving these problems and making a codebase that can be adapted and extended on
 by the community. Maintainability has been our utmost priority as well. It has been designed to be as developer accessible as possible, with included utilities and tools
 to ease and streamline the phone development process.
 
@@ -29,29 +28,31 @@ with some frameworks and environments that we didn't account for. Please ensure 
 
 ## Standalone Information & Installation
 
-We have designed *NPWD* to be generally framework agnostic, meaning that it can easily be 
-integrated with both popular open source frameworks like ESX & QBCore or any arbitary 
-custom framework. 
+We have designed _NPWD_ to be generally framework agnostic, meaning that it can easily be
+integrated with both popular open source frameworks like ESX & QBCore or any arbitary
+custom framework.
 
 For further details on this system, please refer to our installation [documentation](https://projecterror.dev/docs/npwd/start/installation).
 
-**As of 1/6/2021, you must use our fork of [screenshot-basic](https://github.com/project-error/screenshot-basic)
+You will also need [screenshot-basic](https://github.com/citizenfx/screenshot-basic).
 
 ## Technical Stack and Development
 
-*NPWD* uses React + TypeScript to form the NUI front end and uses TypeScript (V8 runtime) for game 
-scripts. You can find more technical information regarding the development of this project on our docs 
+_NPWD_ uses React + TypeScript to form the NUI front end and uses TypeScript (V8 runtime) for game
+scripts. You can find more technical information regarding the development of this project on our docs
 page [here](https://projecterror.dev/docs/npwd/dev/dev_bootstrap).
 
 ## Feature Request & Issue Reporting
+
 Please open an issue/enhancement on our [Github Repo](https://github.com/project-error/npwd/issues/new/choose). This is the best way for us to track what needs to be resolved or improved upon.
 
 ## Features
+
 - [Optimized](https://i.imgur.com/mN5ib42.png)
   - 0.01 ms on idle and 0.05 while in use.
 - [Twitter](https://i.imgur.com/BjwovRR.png)
   - Like, reply, retweet, report and delete your own Tweets.
-  - Send emojis and images directly from the phone's gallery, or from an external url. *Gifs too!*
+  - Send emojis and images directly from the phone's gallery, or from an external url. _Gifs too!_
   - NPWD features discord logging so all reported tweets will be sent to the configured webhook.
 - [Matchmaker](https://i.imgur.com/46XtZ06.jpeg)
   - Like tinder but without all the bots. Swipe right into romance or rejection.
@@ -66,17 +67,17 @@ Please open an issue/enhancement on our [Github Repo](https://github.com/project
 - [Calling](https://i.imgur.com/7T0JbQl.png)
   - Call anyone from anywhere.
 - [Camera](https://i.imgur.com/Fk6wQkg.png)
-  - Take pictures of oneself or your surroundings. 
+  - Take pictures of oneself or your surroundings.
   - All pictures save to the gallery where they can be retrieved with a copyable link.
   - As of v1.0, there is currently [two photo modes](https://i.imgur.com/pole8bA.jpeg) for front/rear camera.
 - [Contacts](https://i.imgur.com/Qxs35rj.png)
   - Add a phone number to your contacts for easier access.
-  - Supports up to 19 characters for phone number by default and easily changed within the 
+  - Supports up to 19 characters for phone number by default and easily changed within the
   - Gif support for avatar.
 - [Notes](https://i.imgur.com/0Hvvlah.png)
   - Something you want to remember in game? Make a note!
 - [Calculator](https://user-images.githubusercontent.com/55056068/147531020-b7527a69-0b0e-4e81-83c7-58ad836eab23.png)
-  - Peform calculations. 
+  - Peform calculations.
 - [Themes](https://i.imgur.com/2DpBHuM.png)
   - Default dark theme or light theme with other themes in the works. Want to make your own? Follow our [documentation](https://projecterror.dev/docs/npwd/dev/setup#setting-up-the-theme).
   - Set within the Settings app.
@@ -110,6 +111,7 @@ Please open an issue/enhancement on our [Github Repo](https://github.com/project
   - Never used a webhook before? Follow Discord's [documentation](https://support.discord.com/hc/en-us/articles/228383668-Intro-to-Webhooks) for creating a webhook.
 
 ## Final words
+
 A special thanks to all the people who have helped out with the translations! You have all been amazing.
 
 Thanks to [Ultrahacx](https://github.com/ultrahacx) for all the artwork and animations seen in the trailer and this post.

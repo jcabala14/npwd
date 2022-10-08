@@ -4,6 +4,7 @@ import { Profile, Tweet, TwitterEvents } from '../../../typings/twitter';
 import { getSource } from '../utils/miscUtils';
 import TwitterService from './twitter.service';
 import { onNetPromise } from '../lib/PromiseNetEvents/onNetPromise';
+import TwitterDB from './twitter.db';
 
 onNetPromise<void, Profile | string[]>(
   TwitterEvents.GET_OR_CREATE_PROFILE,

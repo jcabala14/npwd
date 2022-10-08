@@ -1,4 +1,4 @@
-import { useActiveDarkchatValue, useSetDarkchatMessagesState } from '../state/state';
+import { useActiveDarkchatValue } from '../state/state';
 import { useDarkchatActions } from './useDarkchatActions';
 import { useNuiEvent } from '@common/hooks/useNuiEvent';
 import {
@@ -41,7 +41,6 @@ export const useDarkchatService = () => {
 
   const handleDeleteChannel = useCallback(
     (dto: { channelId: number }) => {
-      console.log(dto);
       leaveLocalChannel(dto.channelId);
     },
     [leaveLocalChannel],

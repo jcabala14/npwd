@@ -251,16 +251,9 @@
     "MARKETPLACE_notifyNewListing": true
   },
   "appSettings": {
-    "browserHomePage": "https://docs.projecterror.dev"
+    "browserHomePage": "https://sevenclubrp.es/"
   },
   "iconSet": [
-    {
-      "label": "NPWD Icons",
-      "value": {
-        "custom": true,
-        "name": "npwd_icons"
-      }
-    },
     {
       "label": "Material",
       "value": {

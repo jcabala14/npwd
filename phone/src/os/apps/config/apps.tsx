@@ -31,7 +31,7 @@ import {
   TWITTER_APP_PRIMARY_COLOR,
   TWITTER_APP_TEXT_COLOR,
 } from '../../../apps/twitter/twitter.theme';
-import { MATCH_APP_PRIMARY_COLOR, MATCH_APP_TEXT_COLOR } from '../../../apps/match/match.theme';
+/*import { MATCH_APP_PRIMARY_COLOR, MATCH_APP_TEXT_COLOR } from '../../../apps/match/match.theme';*/
 import { SvgIconProps, Theme } from '@mui/material';
 import { INotificationIcon } from '@os/notifications/providers/NotificationsProvider';
 import { BrowserApp } from '../../../apps/browser/components/BrowserApp';
@@ -134,14 +134,14 @@ export const APPS: IAppConfig[] = [
       <AppRoute id="SETTINGS" path="/settings" component={SettingsApp} emitOnOpen={false} />
     ),
   },
-  {
+  /*{
     id: 'MATCH',
     nameLocale: 'APPS_MATCH',
     backgroundColor: MATCH_APP_PRIMARY_COLOR,
     color: MATCH_APP_TEXT_COLOR,
     path: '/match',
     Route: () => <AppRoute id="MATCH" path="/match" component={MatchApp} emitOnOpen={false} />,
-  },
+  },*/
   {
     id: 'TWITTER',
     nameLocale: 'APPS_TWITTER',

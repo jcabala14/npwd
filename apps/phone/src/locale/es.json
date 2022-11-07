@@ -177,6 +177,11 @@
         "UPDATE_SUCCESS": "¡Nota actualizada!"
       }
     },
+    "JOBS": {
+      "FEEDBACK": {
+        "NO_JOBS": "No hay negocios actualmente disponibles."
+      }
+    },
     "MARKETPLACE": {
       "FEEDBACK": {
         "REQUIRED_FIELDS": "¡Todos los campos obligatorios tienen que ser rellenados!",
@@ -273,6 +278,7 @@
     "APPS_BANK": "Banco",
     "APPS_NOTES": "Notas",
     "APPS_EXAMPLE": "App de ejemplo",
+    "APPS_JOBS": "Negocios",
     "APPS_TWITTER": "Twitter",
     "APPS_MARKETPLACE": "Anuncios",
     "APPS_CAMERA": "Cámara",

@@ -3,34 +3,42 @@
   "defaultLanguage": "en",
   "wallpapers": [
     {
-      "label": "Minimal",
-      "value": "minimal.jpg"
+      "label": "Seven Club",
+      "value": "sevenclub.jpg"
     },
     {
-      "label": "Surf",
-      "value": "surf.jpg"
+      "label": "Seven Club 2",
+      "value": "seven2.jpg"
     },
     {
-      "label": "Waves",
-      "value": "waves.jpg"
+      "label": "Seven Club 3",
+      "value": "seven3.jpg"
     },
     {
-      "label": "Project Error",
-      "value": "projecterror.jpg"
+      "label": "Seven Club 4",
+      "value": "seven4.jpg"
     },
     {
-      "label": "NPWD 2020",
-      "value": "npwd2020.png"
+      "label": "Seven Club 5",
+      "value": "seven5.jpg"
     },
     {
-      "label": "Default",
-      "value": "default.jpg"
+      "label": "Seven Club 6",
+      "value": "seven6.png"
+    },
+    {
+      "label": "Seven Club 7",
+      "value": "seven7.jpg"
     }
   ],
   "frames": [
     {
       "label": "Default",
       "value": "default.png"
+    },
+    {
+      "label": "Seven Club Kawaii",
+      "value": "sevengato.png"
     },
     {
       "label": "Blue",
@@ -213,8 +221,8 @@
       }
     },
     "wallpaper": {
-      "label": "Minimal",
-      "value": "minimal.jpg"
+      "label": "Seven Club",
+      "value": "sevenclub.jpg"
     },
     "customWallpaper": "",
     "frame": {
